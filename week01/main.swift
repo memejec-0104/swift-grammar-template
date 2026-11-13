@@ -124,6 +124,12 @@ for (name, score) in scoreOf {
 
 var passers: [String] = []
 // ここに書く
+for i in 0..<names.count {
+    if ??? ??? 60 {
+        // passersに名前を集める
+    }
+}
+print(passers)
 
 check("演習1 合格者は4名", passers.count == 4)
 check("演習1 並び順は names のまま", passers == ["電子太郎", "山田一郎", "佐藤みなみ", "グエン・アン"])
@@ -162,3 +168,42 @@ check("演習3 平均は72.0", average == 72.0)
 //  多分岐            switch (x) { case 1: ... break; }   switch x { case 1: ... }
 //                    break を書かないと次に落ちる           break は不要。網羅していないとエラー
 //  暗黙の型変換       int から double は自動               自動変換なし。Double(n) と書く
+
+var failers: [String] = []
+for i in 0..<names.count {
+    if scores[i] < 60 {
+        failers.append(names[i])
+    }
+}
+print(failers)
+
+// 練習1
+
+var failCount = 0
+for score in scores {
+    if score < 60 {
+        failCount += 1
+    }
+}
+print(failCount) // 1
+
+// 練習2
+
+var lowCount = 0
+for (name, score) in scoreOf {
+    if score < 70 {
+        print(name)
+        lowCount += 1
+    }
+}
+print(lowCount) //2
+
+// 練習3
+
+let absences = [0, 2, 1, 5, 0]
+var absenceTotal = 0
+for absence in absences {
+    absenceTotal += absence
+}
+let absenceAverage = Double(absenceTotal) / Double(absences.count)
+print(absenceTotal, absenceAverage) // 8 1.6 DoubleはDoubleでしか割れない
