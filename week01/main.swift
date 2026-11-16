@@ -125,8 +125,9 @@ for (name, score) in scoreOf {
 var passers: [String] = []
 // ここに書く
 for i in 0..<names.count {
-    if ??? ??? 60 {
+    if scores[i] >= 60 {
         // passersに名前を集める
+        passers.append(names[i])
     }
 }
 print(passers)
